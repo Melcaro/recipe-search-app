@@ -2,12 +2,23 @@ import React from 'react';
 import './css/RecipeItem.css';
 
 const RecipeItem = value => {
-  console.log(value.recipe.label);
+  console.log(value);
+  const {
+    value: { label, url, image },
+  } = value;
+  console.log(label);
 
   return (
     <div className="recipeItem">
-      <img alt="pic-recipe" className="recipePicture" />
-      <h2 className="recipeLabel">recipeTitle</h2>
+      <a href={url}>
+        <img
+          alt="pic-recipe"
+          className="recipePicture"
+          src={image}
+          target="_blank"
+        />
+      </a>
+      <h2 className="recipeLabel">{label}</h2>
       <div className="loop"></div>
       <div className="healthLabelsInfos"></div>
     </div>

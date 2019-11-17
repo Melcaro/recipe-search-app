@@ -9,16 +9,14 @@ const RecipesContainer = ({ value: recipes }) => {
 
   //   }
   console.log(recipes);
-  if (recipes) {
-    return (
-      <div className="recipeContainer">
-        {recipes.map(({ recipe }) => (
-          <RecipeItem value={recipe} />
-        ))}
-      </div>
-    );
-  }
-  return <div>No results yet</div>;
+  const isResults = recipes && (
+    <div className="recipeContainer">
+      {recipes.map(({ recipe }) => (
+        <RecipeItem value={recipe} />
+      ))}
+    </div>
+  );
+  return isResults || <div>No results yet</div>;
 
   //   return (
   //     <div>

@@ -13,7 +13,7 @@ class App extends React.Component {
       userSearch: '',
       searchResult: [],
     };
-    this.debouncedSearch = debounce(this.startSearch, 200);
+    this.debouncedSearch = debounce(this.startSearch, 100);
   }
   onInputChange({ target: { value } }) {
     this.setState({
@@ -21,7 +21,7 @@ class App extends React.Component {
     });
   }
   onKeyDown(e) {
-    if (e.charCode === 13) {
+    if (e.charCode === 'Enter') {
       this.debouncedSearch(this.state.userSearch);
     }
   }
